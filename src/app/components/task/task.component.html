@@ -1,0 +1,17 @@
+<div *ngIf="!taskId || taskId > taskSer.tasks.length">
+  <p class="alert alert-danger">
+    Can't match any type
+  </p>
+</div>
+
+<div *ngIf="taskId && taskId <= taskSer.tasks.length">
+  <div class="container pt-5">
+    <form action="">
+      <input type="text" class="form-control" placeholder="Task Title" [(ngModel)]="task.title" [ngModelOptions]="{standalone: true}">
+      <textarea class="form-control mt-2 mb-3" placeholder="Task Description" rows="9" [(ngModel)]="task.description" [ngModelOptions]="{standalone: true}"></textarea>
+      <button class="btn btn-success me-3" (click)="saveTask()">Save</button>
+      <button class="btn btn-danger me-3" (click)="deleteTask()">Delete</button>
+      <a routerLink="" class="btn btn-dark">Cancel</a>
+    </form>
+  </div>
+</div>

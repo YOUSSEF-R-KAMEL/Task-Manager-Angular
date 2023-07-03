@@ -1,0 +1,23 @@
+<div class="container pt-5">
+  <a routerLink="/add-task" class="btn btn-primary mb-3">Add New Task</a>
+
+  <div *ngIf="tasksSer.tasks.length == 0">
+    <p class="alert alert-primary">
+      there isn't any tasks
+    </p>
+  </div>
+
+
+  <div *ngIf="tasksSer.tasks.length != 0">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let task of tasksSer.tasks, index as i">
+        <a [routerLink]="['task', i + 1]">
+          {{ task.title }}
+        </a>
+        <button class="btn btn-danger" (click)="deleteTask(i)">Delete</button>
+      </li>
+    </ul>
+  </div>
+
+
+</div>
